@@ -1,20 +1,20 @@
 # Pacman Ensemble Classifier Agent (Machine Learning)
 
-> A Pacman controller driven by an ensemble of three classifiers written from scratch, including a Bayesian network that learns its own structure.
+> Three classifiers I wrote from scratch vote on Pacman's next move. One is a Bayesian network that learns its own structure.
 
-🔒 **The source code is in a private repository** because this was university coursework at King's College London. I'm happy to walk through the code on request.
+🔒 The code sits in a private repository because this was King's College London coursework. Ask me and I'll walk you through it.
 
 ## Overview
-The agent turns Pacman's local surroundings (walls, food and nearby ghosts) into a binary feature vector and predicts the best move. It was trained on a dataset of logged "good moves". All the models are my own implementations, with no ML libraries.
+The agent turns Pacman's surroundings (walls, food and nearby ghosts) into a binary feature vector and predicts a move. I trained it on a log of good moves and used no ML libraries.
 
 ## What I built
-- **Nearest Centroid Classifier:** built on hand-engineered directional scores that reward food and safety and penalise walls and ghosts
-- **k-Nearest Neighbours:** works on the raw feature vectors, with k = √N and random tie-breaking
-- **Bayesian network:** structure learned by a stochastic search that maximises the Bayesian Information Criterion (BIC), with conditional probability table (CPT) estimation and posterior-based prediction
-- **Weighted-voting ensemble:** combines the three models' predictions and enforces move legality, re-sampling whenever the chosen move is illegal
+- **Nearest centroid classifier:** scores each direction by hand, rewarding food and safety and penalising walls and ghosts
+- **k-nearest neighbours:** works on the raw vectors, with k = √N and random tie-breaks
+- **Bayesian network:** a stochastic search picks the structure that maximises the Bayesian Information Criterion (BIC), then I estimate the probability tables and predict from the posterior
+- **Voting:** a weighted vote combines the three models. If the winner picks an illegal move, the agent draws again
 
-## Skills demonstrated
-Supervised learning · probabilistic graphical models · feature engineering · ensemble methods · implementing algorithms from scratch
+## Skills
+Supervised learning · probabilistic graphical models · feature engineering · ensembles
 
 ## Tech stack
-Python (no external ML libraries)
+Python, with no ML libraries
